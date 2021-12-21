@@ -85,13 +85,13 @@ def change_lang(context, lang=None, *args, **kwargs):
 
 @register.simple_tag
 def get_menu_icon(menu_item):
-    if hasattr(menu_item.icon, 'url'):
-        return menu_item.icon.url
+    if hasattr(menu_item, 'icon'):
+        return menu_item.icon
     elif hasattr(menu_item, 'link_page') and isinstance(menu_item.link_page, Section) and hasattr(
-            menu_item.link_page.icon, 'url'):
-        return menu_item.link_page.specific.icon.url
+            menu_item.link_page, 'icon'):
+        return menu_item.link_page.specific.icon
 
-    return ''
+    return None
 
 
 @register.simple_tag

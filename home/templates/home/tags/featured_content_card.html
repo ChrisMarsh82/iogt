@@ -2,7 +2,7 @@
 {% load static wagtailcore_tags wagtailimages_tags %}
 
 {% if page.icon %}
-    {% render_png_from_svg page.get_icon_url width=16 height=16 %}
+    {% render_png_from_svg '' icon=page.icon width=16 height=16 %}
 {% endif %}
 <a href="{% pageurl page %}">{{ page.title }}</a>
 {% include 'home/tags/angle_bracket.html' %}
